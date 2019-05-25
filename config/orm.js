@@ -23,10 +23,18 @@ function objToSql(ob) {
     let value = ob[key];
     // check to skip hidden properties
     if (Object.hasOwnProperty.call(ob, key)) {
-      // if string with spaces, add quotations
+      // if string with spaces, add quotations (JD House => 'JD House')
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
       }
+      // e.g. {name: 'JD House'} => ["name='JD House'"]
+      // e.g. {sleepy: true} => ["sleepy=true"]
+      arr.push(key + "=" + value);
+    }
+  }
+  // translate array of strings to a single comma-separated string
+  return arr.toString();
+}
 
 // Object for all our SQL statement functions.
 let orm = {
