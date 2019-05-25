@@ -1,5 +1,5 @@
 // Import MySQL connection.
-const connection = require("./config/connection.js");
+const connection = require("../config/connection.js");
 
 // Helper function for SQL syntax.
 // The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
