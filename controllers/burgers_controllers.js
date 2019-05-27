@@ -5,37 +5,32 @@ const router = express.Router();
 // Import the model (burger.js) to use its database functions.
 const burger = require("../models/burger.js");
 
-// Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
-    burger.seletAll(function(data) {
-      let hbsObject = {
-        burger: data
-      };
+// Root route displaying available burgers
+  router.get("/", function(req, res) {
+    burger.selectAll(function(data) {
+      let hbsObject = { burger: data };
       console.log(hbsObject);
       res.render("index", hbsObject);
     });
   });
 
- //verify that we need this . 
-  router.post("/api/burger", function(req, res) {
+ // Create new burger 
+  router.post("/burger/create", function(req, res) {
     burger.insertOne([
-      "name", "sleepy"
+        "burger_name", "devoured"
     ], [
-      //req.body.name, req.body.sleepy
+        req.body.burger_name, devoured = true
     ], function(result) {
-      // Send back the ID of the new quote
-      res.json({ id: result.insertId });
-    });
+    // Send back the ID of the new quote
+    res.json({ id: result.insertId });
   });
+});
   
-  router.put("/api/burger/:id", function(req, res) {
+// Devour Da Burger
+  router.put("/burger/devoured/:id", function(req, res) {
     let condition = "id = " + req.params.id;
-  
-    console.log("condition", condition);
-  
-    burger.updateOne({
-      //sleepy: req.body.sleepy
-    }, condition, function(result) {
+
+    burger.updateOne(condition, function() {
       if (result.changedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
         return res.status(404).end();

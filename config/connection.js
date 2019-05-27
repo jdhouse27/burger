@@ -1,5 +1,8 @@
 // Set up MySQL connection.
+require("dotenv").config();
 const mysql = require("mysql");
+const keys = require("../keys");
+const burger = keys.burger;
 
 const connection = mysql.createConnection({
   host: "localhost",

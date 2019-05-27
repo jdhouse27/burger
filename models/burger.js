@@ -1,7 +1,7 @@
 // Import the ORM to create functions that will interact with the database.
 const orm = require("../config/orm.js");
 
-let burgers = {
+let burger= {
   selectAll: function(cb) {
     orm.selectAll("burgers", function(res) {
       cb(res);
@@ -21,4 +21,4 @@ let burgers = {
 };
 
 // Export the database functions for the controller (burgers_controller.js).
-module.exports = burgers;
+module.exports = burger;

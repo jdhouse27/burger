@@ -65,7 +65,7 @@ let orm = {
             });
     },
     updateOne: function(table, objColVals, condition, cb) {
-        var query = "UPDATE " + table;
+        let query = "UPDATE " + table;
     
         query += " SET ";
         query += objToSql(objColVals);
