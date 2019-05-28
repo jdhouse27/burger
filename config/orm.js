@@ -28,8 +28,8 @@ function objToSql(ob) {
         value = "'" + value + "'";
       }
       // e.g. {name: 'JD House'} => ["name='JD House'"]
-      // e.g. {sleepy: true} => ["sleepy=true"]
-      arr.push(key + "=" + value);
+      // e.g. {devoured: true} => ["devoured=true"]
+      arr.push(key + " = " + value);
     }
   }
   // translate array of strings to a single comma-separated string
@@ -39,12 +39,12 @@ function objToSql(ob) {
 // Object for all our SQL statement functions.
 let orm = {
     selectAll: function(tableInput, cb) {
-        let query = "SELECT * FROM " + tableInput + ";";
-            connection.query(query, function(err, res) {
-                if (err) {
-                    throw err;
-                } cb(res);
-            });
+      let query = "SELECT * FROM " + tableInput + ";";
+        connection.query(query, function(err, res) {
+          if (err) {
+            throw err;
+          } cb(res);
+        });
     },
     insertOne: function(table, cols, vals, cb) {
         let query = "INSERT INTO " + table;
@@ -59,20 +59,21 @@ let orm = {
             console.log(query);
 
             connection.query(query, vals, function(err, res) {
-                if (err) {
-                    throw err;
-                } cb(res);
+              if (err) {
+                throw err;
+              } cb(res);
             });
     },
     updateOne: function(table, objColVals, condition, cb) {
         let query = "UPDATE " + table;
     
-        query += " SET ";
-        query += objToSql(objColVals);
-        query += " WHERE ";
-        query += condition;
+            query += " SET ";
+            query += objToSql(objColVals);
+            query += " WHERE ";
+            query += condition;
     
-        console.log(query);
+              console.log(query);
+
         connection.query(query, function(err, result) {
           if (err) {
             throw err;

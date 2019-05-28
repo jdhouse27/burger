@@ -5,6 +5,7 @@ const router = express.Router();
 // Import the model (burger.js) to use its database functions.
 const burger = require("../models/burger.js");
 
+
 // Root route displaying available burgers
   router.get("/", function(req, res) {
     burger.selectAll(function(data) {
@@ -27,10 +28,12 @@ const burger = require("../models/burger.js");
 });
   
 // Devour Da Burger
-  router.post("/api/burger/:id", function(req, res) {
+  router.put("/api/burger/:id", function(req, res) {
     let condition = "id = " + req.params.id;
+    
+    console.log("condition", condition);
 
-    burger.updateOne(condition, function() {
+    burger.updateOne({devoured: req.body.devoured}, condition, function(result) {
       if (result.changedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
         return res.status(404).end();
