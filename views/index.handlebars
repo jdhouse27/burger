@@ -5,9 +5,7 @@
       {{#each burger}}
         {{#unless devoured}}
           <li class="newBurger">{{id}}.{{burger_name}}</li>
-          <button class="devoured-status" data-id="{{id}}" data-newstatus="{{devoured}}">
-		        {{#if devoured}}Devour It!{{/if}}
-	        </button>
+          <button class="devoured-status" data-id="{{id}}" data-newstatus="{{devoured}}">Devour It!</button>
         {{/unless}}
       {{/each}}
     </ul>
@@ -15,11 +13,9 @@
     <div class="col-md-4">
     <ul>
       {{#each burger}}
-        {{#if this.devoured}}
-          <li class="newBurger">{{this.id}}.{{this.burger_name}}</li>
-          <button class="devoured-status" data-id="{{id}}" data-newstatus="{{create}}">
-		        {{#if}}Order Again!{{/if}}
-	        </button>
+        {{#if devoured}}
+          <li class="newBurger">{{id}}.{{burger_name}}</li>
+          <button class="devoured-status" data-id="{{id}}" data-newstatus="{{create}}">Order Again!</button>
         {{/if}}
       {{/each}}
     </ul>
@@ -56,7 +52,7 @@
     };
 
     // Send the PUT request.
-    $.ajax("/burgers/devoured/:id" + id, {
+    $.ajax("/api/burger/" + id, {
       type: "PUT",
       data: newstatusState
     }).then(
@@ -78,7 +74,7 @@
     };
 
     // Send the POST request.
-    $.ajax("/burger/create", {
+    $.ajax("/api/burger/", {
       type: "POST",
       data: newBurger
     }).then(

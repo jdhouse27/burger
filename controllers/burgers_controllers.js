@@ -15,11 +15,11 @@ const burger = require("../models/burger.js");
   });
 
  // Create new burger 
-  router.post("/burger/create", function(req, res) {
+  router.post("/api/burger", function(req, res) {
     burger.insertOne([
         "burger_name", "devoured"
     ], [
-        req.body.burger_name, devoured = true
+        req.body.burger_name, devoured = false
     ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
@@ -27,7 +27,7 @@ const burger = require("../models/burger.js");
 });
   
 // Devour Da Burger
-  router.put("/burger/devoured/:id", function(req, res) {
+  router.post("/api/burger/:id", function(req, res) {
     let condition = "id = " + req.params.id;
 
     burger.updateOne(condition, function() {
