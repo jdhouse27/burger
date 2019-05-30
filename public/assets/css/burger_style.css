@@ -1,0 +1,77 @@
+body {
+    background-image: url("../images/table.jpeg");
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-color: black;
+    color: rgb(230, 225, 220);
+    text-shadow: 2px 2px 4px black; 
+}
+
+.card {
+    background-color: rgb(173, 146, 109);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    height: auto;
+    border-radius: 8%;
+    display: inline-block;
+}
+
+#devoured-burger{
+    z-index: 1;
+    float: right;
+    font-size: 1.2em;
+}
+
+#new-burger{
+    z-index: 1;
+    float: left;
+    font-size: 1.2em;
+}
+
+#addBurger {
+    background-color: rgb(107, 70, 49);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: auto;
+    text-align: justify;
+    border-radius: 8%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+    font-size: 20 px;
+    text-emphasis: bold;
+}
+
+button {
+    color:antiquewhite;
+    text-shadow: 2px 2px 4px black; 
+    border-radius: 5px;
+    background-color:  #3f3626;
+}
+
+#devour-btn {
+    right: 0px;
+}
+
+#title {
+    text-align: center;
+    font-size: 3em;
+}
+
+#burger-img{
+    height: 30%;
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30%
+}

@@ -2,24 +2,28 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-4">
-      <ul>
-        {{#each burger}}
-          {{#unless devoured}}
-            <li class="newBurger">{{id}}.{{burger_name}}</li>
-            <button class="devoured-status" data-id="{{id}}">Devour It!</button>
-          {{/unless}}
-        {{/each}}
-      </ul>
+      <div id="new-burger" class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          {{#each burger}}
+            {{#unless devoured}}
+              <li class="newBurger">{{id}}.{{burger_name}}</li>
+              <button class="devoured-status" data-id="{{id}}">Devour It!</button>
+            {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
     </div>
-      <div class="col-md-4">
-      <ul>
-        {{#each burger}}
-          {{#if devoured}}
-            <li class="newBurger">{{id}}.{{burger_name}}</li>
-            {{!-- <button class="devoured-status" data-id="{{id}}" data-newstatus="{{create}}">Order Again!</button> --}}
-          {{/if}}
-        {{/each}}
-      </ul>
+    <div class="col-md-4">
+      <div id="devoured-burger" class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          {{#each burger}}
+            {{#if devoured}}
+              <li class="devouredBurger">{{id}}.{{burger_name}}</li>
+              {{!-- <button class="devoured-status" data-id="{{id}}" data-newstatus="{{create}}">Order Again!</button> --}}
+            {{/if}}
+          {{/each}}
+        </ul>
+      </div>
     </div>
     <div class="col-md-2"></div>
   </div>
@@ -27,16 +31,20 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-3">
-
-      <h2>Add a burger</h2>
-      <br><br>
-      <form class="create-form">
-        <div class="form-group">
-          <label for="burger">Burger Name:</label>
-          <input type="text" id="burger" name="burger_name">
+      <div id="addBurger" class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h2 class="card-title">Add a burger</h2>
+          
+          <form class="create-form">
+            <div class="form-group">
+              <label for="burger">Burger Name:</label>
+              <input type="text" id="burger" name="burger_name">
+            </div>
+            <br>
+            <button type="submit">Add burger</button>
+          </form>
         </div>
-        <button type="submit">Add burger</button>
-      </form>
+      </div>
     </div>
     <div class="col-md-3"></div>
   </div>
