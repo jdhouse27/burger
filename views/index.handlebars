@@ -3,11 +3,12 @@
     <div class="col-md-2"></div>
     <div class="col-md-4">
       <div id="new-burger" class="card" style="width: 18rem;">
+        <h2 class="card-title">Your Burger Is Ready!</h2>
         <ul class="list-group list-group-flush">
           {{#each burger}}
             {{#unless devoured}}
               <li class="newBurger">{{id}}.{{burger_name}}</li>
-              <button class="devoured-status" data-id="{{id}}">Devour It!</button>
+              <button id="devour-btn" class="devoured-status" data-id="{{id}}">Devour It!</button>
             {{/unless}}
           {{/each}}
         </ul>
@@ -15,6 +16,7 @@
     </div>
     <div class="col-md-4">
       <div id="devoured-burger" class="card" style="width: 18rem;">
+        <h2 class="card-title">Devoured Burgers! Ymmm!</h2>
         <ul class="list-group list-group-flush">
           {{#each burger}}
             {{#if devoured}}

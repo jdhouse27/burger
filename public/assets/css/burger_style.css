@@ -17,6 +17,7 @@ body {
     background-position: center;
     position: relative;
     height: auto;
+    width: auto;
     border-radius: 8%;
     display: inline-block;
 }
@@ -33,21 +34,29 @@ body {
     font-size: 1.2em;
 }
 
+.card-title {
+    color:antiquewhite;
+    text-shadow: 2px 2px 4px black; 
+    font-size: 1.3em;
+    text-align: center;
+}
+
 #addBurger {
     background-color: rgb(107, 70, 49);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     height: auto;
-    text-align: justify;
+    width: auto;
     border-radius: 8%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    z-index: 1;
 }
 
 li {
     list-style-type: none;
-    font-size: 20 px;
+    font-size: 20px;
     text-emphasis: bold;
 }
 
