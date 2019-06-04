@@ -3,7 +3,7 @@ require("dotenv").config();
 const mysql = require("mysql");
 const keys = require("../keys");
 const burger = keys.burger;
-const connection;
+// const connection;
 
 if (process.env.JAWSDB_UL) {
     connection = mysql.createConnection(process.env.JAWSDB_UL);
