@@ -5,8 +5,8 @@ const keys = require("../keys");
 const burger = keys.burger;
 // const connection;
 
-if (process.env.JAWSDB_UL) {
-    connection = mysql.createConnection(process.env.JAWSDB_UL);
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
     connection = mysql.createConnection({
 
